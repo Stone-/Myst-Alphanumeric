@@ -1,4 +1,4 @@
-import Image
+from PIL import Image, ImageColor
 import math
 
 
@@ -21,10 +21,10 @@ There can be rounding errors with some fractional number.
 # User editable settings ##
 class user:
     border_size = 50
-    numeral_color = None        # (R,G,B) or None for black
+    numeral_color = None  # "Color Name" or None for black
     background_color = "White"  # "Color Name" or None for transparent
     max_char_per_row = 25
-    resize_x_y = False, False
+#    resize_x_y = False, False
 ###########################
 
 
@@ -59,23 +59,9 @@ def to_base25(decimal):
             if i > limit or i >= 10:
                 break
 
+    print(base25)
     return base25
 
-
-# Change numeral color
-def change_color(image):
-    'image: Image -> Image'
-    width, hight = image.size
-    
-    for x in range(width):
-        for y in range(hight):
-            _, _, _, alpha = image.getpixel((x, y))
-
-            if alpha != 0:
-                image.putpixel((x, y), (*user.numeral_color,))
-
-    return image
- 
 
 # Open the numrals we need
 def numeral_gen(ints):
@@ -87,17 +73,39 @@ def numeral_gen(ints):
 
     def images():
         for n in ints:
-            image = Image.open(t % n)
-            if user.numeral_color:
-                image = change_color(image)
-            yield image
+            yield Image.open(t % n)
 
     return (images, len(ints), size, offset)
 
 
+# Change numeral color
+def change_color(image, color):
+    "image: PIL.Image, color: str -> PIL.Image"
+    width, hight = image.size
+    
+    for x in range(width):
+        for y in range(hight):
+
+            if image.getpixel((x, y))[3] != 0:
+                image.putpixel((x, y), (*ImageColor.getrgb(color), 255))
+
+    return image
+
+
+# Resize image to x or y
+def resize_image(image, x=None, y=None):
+    "image: PIL.Image, x: int, <or> y: int -> PIL.Image"
+    X, Y = image.size
+    if x:
+        y = int(Y / (X / x))
+    elif y:
+        x = int(X / (Y / y))
+    return image.resize((x, y))
+
+
 # Create an image of D'ni numbers from a list of symbols
 def to_dni(numerals, char_count, char_size, offset_size):
-    '[Image,], int, (x,y), (x,y) -> Image'
+    '[PIL.Image,], int, (x,y), (x,y) -> PIL.Image'
 
     char_per_row = char_count
     if  char_per_row > user.max_char_per_row:
@@ -130,7 +138,10 @@ def to_dni(numerals, char_count, char_size, offset_size):
     offset_y = 0
     for symbol in numerals():
         count += 1
-
+        
+        if user.numeral_color:
+            symbol = change_color(symbol, user.numeral_color)
+        
         image.paste(
             symbol,
             (offset_x + user.border_size, offset_y + user.border_size),
@@ -141,16 +152,6 @@ def to_dni(numerals, char_count, char_size, offset_size):
             offset_x = 0
             offset_y += offset_size[1]
             count = 0
-
-    # Resize the image
-    x, y = user.resize_x_y
-    if x or y:
-        X, Y = image.size
-        if x:
-            y = int(Y / (X / x))
-        elif y:
-            x = int(X / (Y / y))
-        image = image.resize((x, y))
 
     return image
 
@@ -190,7 +191,11 @@ def ask_save(image):
 # Run
 def main():
     while True:
-        ask_save(to_dni(*numeral_gen(to_base25(ask_decimal()))))
+        decimal = ask_decimal()
+        ints = to_base25(decimal)
+        gen = numeral_gen(ints)
+        image = to_dni(*gen)
+        ask_save(image)
 
 
 if __name__ == "__main__":
