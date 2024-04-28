@@ -3,14 +3,14 @@ import math
 
 
 '''
-    D'ni Numeral
+    D'ni Numerals
 
 This will create an image of D'ni numerals.
 
 Does not handle negative numbers, I don't have a D'ni symbol for it.
 There can be rounding errors with some fractional number.
 
-    version 0.1
+    version 0.2
     2024-03-25
     stone@stone-shard.com
     Stone
@@ -21,7 +21,8 @@ There can be rounding errors with some fractional number.
 # User editable settings ##
 class user:
     border_size = 50
-    background_color = "White"
+    numeral_color = None        # (R,G,B) or None for black
+    background_color = "White"  # "Color Name" or None for transparent
     max_char_per_row = 25
     resize_x_y = False, False
 ###########################
@@ -61,9 +62,24 @@ def to_base25(decimal):
     return base25
 
 
+# Change numeral color
+def change_color(image):
+    'image: Image -> Image'
+    width, hight = image.size
+    
+    for x in range(width):
+        for y in range(hight):
+            _, _, _, alpha = image.getpixel((x, y))
+
+            if alpha != 0:
+                image.putpixel((x, y), (*user.numeral_color,))
+
+    return image
+ 
+
 # Open the numrals we need
 def numeral_gen(ints):
-    "ints: [int, ] -> images:gen, len, (int,int), (int, int)"
+    "ints: [int, ] -> gen, len, (int,int), (int, int)"
     t = "Images/Dni_%02d.png"
     x, y = Image.open(t % 0).size
     size = (x-14, y-33)  # Character
@@ -71,7 +87,10 @@ def numeral_gen(ints):
 
     def images():
         for n in ints:
-            yield Image.open(t % n)
+            image = Image.open(t % n)
+            if user.numeral_color:
+                image = change_color(image)
+            yield image
 
     return (images, len(ints), size, offset)
 
