@@ -32,12 +32,16 @@ class user:
 def to_base25(decimal):
     'decimal -> [int, ]'
     "http://is.gd/aa9xJb"
+    radix = 26
     base25 = []
-    ty = type(decimal)
+    typ = type(decimal)
+    
     decimal = math.fabs(decimal)
     integral = int(decimal)
-    fractional = decimal - integral
-    fractional = float(str(decimal)[len(str(integral)):])
+    
+    if typ is float:
+        fractional = decimal - integral
+        fractional = float(str(decimal)[len(str(integral)):])
 
     while integral >= 0:
         base25.insert(0, integral % 25)
@@ -45,10 +49,10 @@ def to_base25(decimal):
         if integral == 0:
             break
 
-    if ty is float:
+    if typ is float:
         i = 1
         limit = len(str(fractional)) - 2
-        base25.append(26)
+        base25.append(radix)
 
         while fractional >= 0:
             fract_25 = fractional * 25
@@ -65,7 +69,7 @@ def to_base25(decimal):
 
 # Open the numrals we need
 def numeral_gen(ints):
-    "ints: [int, ] -> gen, len, (int,int), (int, int)"
+    "ints: [int, ] -> gen:PIL.Image, len, (int,int), (int, int)"
     t = "Images/Dni_%02d.png"
     x, y = Image.open(t % 0).size
     size = (x-14, y-33)  # Character
@@ -127,9 +131,9 @@ def to_dni(numerals, char_count, char_size, offset_size):
         )
 
     image = Image.new(
-        mode = "RGBA",
-        color = user.background_color,
-        size = image_size
+        mode="RGBA",
+        color=user.background_color,
+        size=image_size
         )
 
     # Paste everthing into the empty image
