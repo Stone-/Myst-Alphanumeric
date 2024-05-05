@@ -2,8 +2,8 @@ from PIL import Image, ImageColor, ImageFont, ImageDraw
 
 '''
     Narayani Numerals
-    
-    Create an image using 'Narayani Light' numerals.
+Convert a decimal to the number system from xxx's notebook in Myst III: Exile. 
+Uses the Narayani Light font created by Jehon aka. Sebastian Ochs.
 
     version 0.1
     2024-05-01
