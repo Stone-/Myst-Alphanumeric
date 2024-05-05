@@ -2,7 +2,7 @@ from PIL import Image, ImageColor, ImageFont, ImageDraw
 
 '''
     Narayani Numerals
-Convert a decimal to the number system from xxx's notebook in Myst III: Exile. 
+Convert a decimal to the number system found in Saavedro's journal from Myst III: Exile. 
 Uses the Narayani Light font created by Jehon aka. Sebastian Ochs.
 
     version 0.1
