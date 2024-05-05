@@ -1,0 +1,40 @@
+FILE:
+File Name = Dni.ttf
+File Size = 23 KB
+
+INFO:
+Family = Dnifont
+Subfamily = Regular
+Unique Name = Altsys Fontographer 3.5  Dnifont Regular
+Full Name = Dnifont Regular
+Version Name = Altsys Fontographer 3.5  12/8/99
+Postscript Name = Dnifont-Regular
+Copyright = Copyright 볉 1995 by Cyan, Inc.
+
+METRICS:
+Values are calculated when the font has a size of 17.0pt
+Ascent = 14.51pt
+Descent = 2.71pt
+Leading = 0.0pt
+Cap Hight = 14.34pt
+Units per Em = 1286
+Bounding Box = x=-4.1pt, y=-2.71pt, w=21.72pt, h=17.22pt
+Underline Position = -1.78pt
+Underline Thicknes = 0.26pt
+Slant Angle = 0.0°
+X Hight = 11.33pt
+
+FORMAT:
+Font type = TrueType
+Font Table = OS/2, cmap, cvt , fpgm, glyf, hdmx, head, hhea, hmtx, loca, maxp, name, post, prep
+Glyph Count = 73
+
+CMAP:
+Platform = Unicode
+Encoding = Unicode 1.0 semantics-deprecated
+Format = 4
+
+
+åaAbcDdEefghIijKklmnoOprsStTxUuvwyz
+.-,'’
+0123456789)!@#$%^&*([]\{}|=+
