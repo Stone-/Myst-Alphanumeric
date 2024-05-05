@@ -1,0 +1,362 @@
+Narayani Fonts
+**************
+
+(c) 2001-2002 by Jehon aka. Sebastian Ochs
+
+mailto:Jehon@gmx.net
+
+http://hosted.barrysworld.net/dscript/
+
+http://jehon.mystfans.com
+
+
+These fonts are inspired by Myst 3: EXILE,
+copyright Presto Studios Inc. and Ubi Soft Entertainment.
+They are for non-profit use only.
+
+
+
+
+**************************************************************
+**************************************************************
+SEVERE SPOILER WARNING!
+
+IF YOU HAVEN'T COMPLETELY FINISHED MYST III: EXILE YET
+OR AT LEAST BEEN TO THE FINAL AGE THEN DON'T READ FURTHER!
+**************************************************************
+**************************************************************
+
+The fonts are in TrueType format. If you use a Mac and your
+Operating System does not support TrueType, try the program
+TTConverter to convert the fonts:
+http://hosted.barrysworld.net/dscript/apps/ttconverter1_5_sit.hqx
+
+
+
+What's new?
+------------
+
+1.10 - Finally, first public release.
+1.00 - This is an unofficial, secret test-release.
+       No permission from Presto Studios yet.
+
+
+
+
+
+What is it anyway?
+------------------
+"Narayani Light" (the "light" is referring to the thickness of the
+strokes) is a True Type Font for writing Narayani words as seen in
+Myst III: Exile.
+
+The puzzle to lower the shields in Narayan show you how the symbols are
+made up:
+
+Four overlapping circles (or rings, if you prefer) of the same size resting
+inside a bigger circle. Each of those five circles is subdivided into four
+segments. That means there's a total of twenty segments ( 5 * 4 ).
+And since each segment can independently be there or not there
+(on or off = 2 states), there are 2 ^ 20 = 1048576 possible symbols.
+However, many of those 1048576 look nearly identical, which does make this
+system quite impractical compared to our letter-based alphabets.
+
+It would be nearly impossible (and quite stupid) to make a font with
+1048576 glyphs.  So I just included the twenty segments into this font.
+
+
+"Narayani Roman Light" is a completely different font, made for writing
+English and other languages which use Roman/Latin based letters. All of
+its small and capital letters, plus some of the other symbols, are made by
+strictly using the Narayani pattern. I think no further explanation is
+required, just test it.
+
+The rest of this document will be referring to "Narayani Light".
+
+
+
+
+Important Usage Notes
+---------------------
+When typing a letter with this font, the cursor doesn't advance, that's
+how the segments can overlap each other and form a complete symbol.
+This has several consequences:
+
+1) You have to manually make the cursor advance by typing an underscore (_)
+   directly after a completed symbol. Optionally you could use two spaces ( )
+   as well (the space produced by underscore is twice the widthe as the normal
+   space). However, it's recommended to use the underscore.
+2) The font may look bad on screen due to the overlaying of multiple contours.
+   Parts of the symbols can disappear, become transparent or at worst the
+   fragments can be displayed next to each other instead of overlaying each other.
+   However, when being rendered by a graphics program or when printed, the font
+   should appear correctly.
+
+The font is not case sensitive.
+Typing "ABCD" or "aBcD" has the same result as "abcd".
+Lowercase is recommended, though.
+
+Furthermore, the order in which you enter letters to produce a symbol doesn't
+matter either. "acdehijors", "adchejiros" or any other permutation will give
+you the symbol for the word "nature" (don't forget the final underscore! ;-).
+However, I recommend alphabetical ordering.
+
+
+
+Character mapping:
+------------------
+See the "mapping.gif" image.
+
+0 = Narayani symbol for 0
+1 = Narayani symbol for 1
+2 = Narayani symbol for 2
+3 = Narayani symbol for 3
+4 = Narayani symbol for 4
+5 = Narayani symbol for 5
+6 = J'nanin
+7 = Amateria
+8 = Edanna
+9 = Voltaic
+! = "RivenSquee", courtesy of Night Sky (aka. Ohvhil)
+
+) = Narayani symbol for 10 (Shift+0)
+= = Narayani symbol for 10 (Shift+0 on a German keyboard ;-)
+
+
+
+
+Shortcuts (use them!):
+----------------------
+abcd = u
+efgh = v
+ijkl = w
+mnop = x
+qrst = y
+
+uvwxy = z
+
+
+
+
+Explanation of the Narayani number system:
+------------------------------------------
+In Narayani you count like this:
+
+zero		= 0
+one		= 1
+two		= 2
+three		= 3
+four		= 4
+five		= 5
+six		= 51
+seven		= 52
+eight		= 53
+nine		= 54
+ten		= )
+eleven		= )1
+twelve		= )2
+thirteen	= )3
+fourteen	= )4
+fifteen		= )5
+sixteen		= )51
+seventeen	= )52
+eighteen	= )53
+nineteen	= )54
+twenty		= ))
+etc...
+
+So to write the number nine, you type "54" which gives you the symbol for
+five next to the symbol for four. You never type two fives next to each
+other, instead you use the symbol for ten.
+
+
+
+
+
+
+
+
+Wordlist (WITHOUT using the shortcuts, do NOT use this!):
+---------------------------------------------------------
+
+
+acdehijors_ 		= nature
+ijkpqrs_ 		= void
+befhklmnq_ 		= intelligence
+bcdgijlmqs_ 		= love
+bfiklopqr_ 		= energy
+bcfghijkpqs_ 		= entropy
+
+aijlqr_ 		= force
+adhjknt_ 		= mutual
+adghjkmnqrst_ 		= society
+adgkmnqrs_ 		= transform
+efjkmnops_ 		= contradict
+bdefkpqs_ 		= chaos
+
+cdeijklnqt_ 		= change
+abcopr_ 		= power
+efhnopqrs_ 		= growth
+abgjkmnqst_ 		= machine
+abcgijlmpqs_ 		= possibility
+abdghjkmnpq_ 		= civilization
+
+aeghklmqr_ 		= future
+bghlopqs_ 		= convey
+bfgimnopr_ 		= spur
+ijkqrt_ 		= cycle
+bfgkmnoprs_ 		= encourage
+almnoprs_ 		= infinite
+
+ilmnqrst_ 		= merge
+abcfglprt_ 		= wisdom
+bilmnst_ 		= motion
+aefghlmpqt_ 		= dependence
+efjkopqrs_ 		= dynamic
+bcghilmnrt_ 		= harmony
+
+
+abefghlprt_ 		= resurrect
+efjklmpst_ 		= momentum
+adfghlpqs_ 		= static
+aefgmnop_ 		= weave
+bcilqs_ 		= balance
+bfijlmpqrs_ 		= exist
+
+bcgijlpqrs_ 		= rebirth
+ijklmprs_ 		= resilence
+bclmnoprs_ 		= elevate
+bcflopqs_ 		= control
+efjkqt_ 		= flow
+abijklprs_ 		= survival
+
+bcghjlrt_ 		= sacrifice
+bcmoprs_ 		= believe
+ceghimno_ 		= system
+eflmnopqrt_ 		= time
+abgjkmqst_ 		= tradition
+filmqs_ 		= remember
+
+bdfmoprs_ 		= constraint
+aefhlnoqt_ 		= nurture
+ijlmnps_ 		= sustain
+cdehklmp_ 		= inhibit
+bckmnqs_ 		= honor
+afgiknpqs_ 		= ethereal
+
+abefgkmnops_ 		= creativity
+abcdfgipqs_ 		= form
+acefgioqr_ 		= discover
+abefhmnoqr_ 		= stimulate
+dflmnopq_ 		= question
+aefmnps_ 		= explore
+
+
+
+
+
+
+
+Wordlist (USING the shortcuts, use THIS list!):
+-----------------------------------------------
+
+
+acdehijors_ 		= nature
+ijkpqrs_ 		= void
+befhklmnq_ 		= intelligence
+bcdgijlmqs_ 		= love
+bfiklopqr_ 		= energy
+bcfghijkpqs_ 		= entropy
+
+aijlqr_ 		= force
+adhjknt_ 		= mutual
+adghjkmny_ 		= society
+adgkmnqrs_ 		= transform
+efjksx_ 		= contradict
+bdefkpqs_ 		= chaos
+
+cdenqtw_ 		= change
+abcopr_ 		= power
+efhnopqrs_ 		= growth
+abgjkmnqst_ 		= machine
+abcgijlmpqs_ 		= possibility
+abdghjkmnpq_ 		= civilization
+
+aeghklmqr_ 		= future
+bghlopqs_ 		= convey
+bfgirx_ 		= spur
+ijkqrt_ 		= cycle
+bfgkrsx_ 		= encourage
+alrsx_			= infinite
+
+ilmny_			= merge
+abcfglprt_ 		= wisdom
+bilmnst_ 		= motion
+almpqtv_ 		= dependence
+efjkopqrs_ 		= dynamic
+bcghilmnrt_ 		= harmony
+
+
+ablprtv_ 		= resurrect
+efjklmpst_ 		= momentum
+adfghlpqs_ 		= static
+aefgx_			= weave
+bcilqs_ 		= balance
+bfijlmpqrs_ 		= exist
+
+bcgijlpqrs_ 		= rebirth
+mprsw_			= resilence
+bclrsx_ 		= elevate
+bcflopqs_ 		= control
+efjkqt_ 		= flow
+abprsw_ 		= survival
+
+bcghjlrt_ 		= sacrifice
+bcmoprs_ 		= believe
+ceghimno_ 		= system
+eflqrtx_ 		= time
+abgjkmqst_ 		= tradition
+filmqs_ 		= remember
+
+bdfmoprs_ 		= constraint
+aefhlnoqt_ 		= nurture
+ijlmnps_ 		= sustain
+cdehklmp_ 		= inhibit
+bckmnqs_ 		= honor
+afgiknpqs_ 		= ethereal
+
+abefgksx_ 		= creativity
+fgipqsu_ 		= form
+acefgioqr_ 		= discover
+abefhmnoqr_ 		= stimulate
+dflqx_			= question
+aefmnps_ 		= explore
+
+
+
+
+
+To Do:
+------
+* a decent readme/documentation in HTML format would be nice. ;-)
+* maybe a another version of the font with thicker strokes. The
+  current version is called Narayani LIGHT after all.
+
+
+
+Thanks go to:
+-------------
+- Presto Studios, especially to Susan Weyer and Greg Uhler
+- the people who showed interest in this font and actually use it!
+
+
+
+Some Links:
+-----------
+http://mysterium.ch
+http://isomerica.net/~mlah/narayan/index.html
+http://www.microsoft.com/typography/
+
+
+That's it. Write me a e-mail, if you want, especially if you have
+suggestions on how to improve the font.
