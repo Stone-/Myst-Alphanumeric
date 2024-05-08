@@ -1,5 +1,6 @@
 from PIL import Image, ImageColor, ImageFont, ImageDraw
 from math import fabs
+from copy import copy
 
 '''
     D'ni Numerals
@@ -8,7 +9,7 @@ Uses the Dni Font created by Cyan.
 
 There can be rounding errors with some fractional number.
 
-    version 0.5
+    version 0.6
     2024-05-08
     stone@stone-shard.com
     Stone
@@ -75,9 +76,12 @@ def create_image(
         base25,
         font_size= 96,
         font_color= "Black",
-        background_color= 'White',  # 'Color' or None for transparent
+        background_color= 'White',  # 'Clear' for transparent
         border_size= 42,
         ):
+
+    if background_color.lower() == 'clear':
+        background_color = None
 
     border_size = int(border_size / 100 * font_size)
 
@@ -108,48 +112,107 @@ def create_image(
         font=font,
         fill=ImageColor.getrgb(font_color))
 
-    # Display image
-    font_name = font.getname()[0]
-    print(f'\n{font_name} keys = {base25}')
-    image.show()
-    print('\nImage size =', image.size)
     return image
 
 
-#
-def save_image(image: Image, name: str):
+# Save Image to
+def save_image(image: Image, name: str) -> (Image, str):
     fp = save_path + name + '.png'
     image.save(fp)
-    print(f'''\nImage saved as "{fp}"\n''')
+    return (image, fp)
 
 
 ########################
 ## Ask user for input ##
 
 # Ask for number
-def ask_decimal():
+def ask_decimal() -> str:
     text = input("\nInput a number to convert to D'ni.\n-> ")
-    if '.' in text:  #if text.isdigit():
+    if '.' in text:
         decimal = float(text)
     else:
         decimal = int(text)
-    return decimal
+    base25 = to_base25(decimal)
+    print(f'\nDni font keys = {base25}')
+    return base25
 
 
-# Ask to save
-def ask_save(image: Image):
+# Ask user for create_image kwargs
+def ask_create(base25: str) -> Image:
+    kwargs = {}
+    color_map = copy(ImageColor.colormap)
+    color_map['clear'] = None
+    l = ({
+        # Font size
+        'type': 'number',
+        'ask': '\nInput a font size.\n-> ',
+        'key': 'font_size',
+        'error': ('\nERROR: Font size must be an integer.', )
+        }, {
+        # Font color
+        'type': 'color',
+        'ask': '\nInput a font color.\n-> ',
+        'test': ImageColor.colormap.keys(),
+        'key': 'font_color',
+        'error': (ImageColor.colormap.keys(), '\n\nERROR: Font color must be from the list above.')
+        }, {
+        # Background color
+        'type': 'color',
+        'ask': "\nInput a background color.\n\tclear = transparent.\n-> ",
+        'key': 'background_color',
+        'test': color_map.keys(),
+        'error': (color_map.keys(), "\n\nERROR: Background color must a color from the list above.")
+        }, {
+        # Border size
+        'type': 'number',
+        'ask': '\nInput a border size.\n-> ',
+        'key': 'border_size',
+        'error': ('\nERROR: Border size must be an integer or leave blank to use the default setting.', )
+        })
+
+    print('\nThe following will use the default settings if skipped.')
+    for d in l:
+        while True:
+            arg = input(d.get('ask'))
+            if not arg:
+                break
+
+            if d.get('type') == 'number':
+                if arg.isnumeric():
+                    kwargs[d.get('key')] = int(arg)
+                    break
+
+            elif d.get('type') == 'color':
+                if arg.lower() in d.get('test'):
+                    kwargs[d.get('key')] = arg
+                    break
+
+            print(*d.get('error'))
+
+    image = create_image(base25, **kwargs)
+    image.show()
+    print('\nImage size =', image.size)
+    return image
+
+
+# Ask to save image
+def ask_save(image: Image) -> (Image, str):
     save = '\nWould you like to save this image? Y/N\n-> '
     name = '\nInput a name to save this image as.\n-> '
-
+    path = '''\nImage saved as "{}"\n'''
     while True:
         yn = input(save).upper()
         if yn in ('Y', 'YES'):
-            save_image(image, input(name))
+            saved = save_image(image, input(name))
+            print(path.format(saved[1]))
             break
 
         elif yn in ('N', 'NO'):
+            saved = (image, None)
             print('\n')
             break
+
+    return saved
 
 
 #########
@@ -157,17 +220,12 @@ def ask_save(image: Image):
 
 # Convert decimal then create image
 def main(decimal, **kwargs) -> Image:
-    keys = to_base25(decimal)
-    image = create_image(keys, **kwargs)
-    return image
+    return create_image(to_base25(decimal), **kwargs)
 
 
-# Ask user for input, view and save image
+# Ask user for decimal and args then view and save image.
 def main_ask_input():
-    decimal = ask_decimal()
-    keys = to_base25(decimal)
-    image = create_image(keys)
-    ask_save(image)
+    return ask_save(ask_create(ask_decimal()))
 
 
 if __name__ == "__main__":
