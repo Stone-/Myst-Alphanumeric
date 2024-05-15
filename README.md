@@ -9,7 +9,8 @@ dni_spell_numbers.py
 -------------------
 Convert a decimal to base 25, then map to the NTStandard and draw an image using the D'ni font.
 Uses the *Dni Font created by Cyan.*  
-![image](Images/dni_spell_numbers -> 25.png)
+![image](https://github.com/Stone-/Myst-Alphanumeric/blob/main/Images/dni_spell_numbers%20-%3E%2025.png)
+
 
 dni_numerals.py  
 ---------------
