@@ -29,7 +29,7 @@ Convert a decimal to base 25,  *Pentavigesimal[^Fandom]* numeral.
 
 
 **ntsToDnifont**(text: str) -> string:  
-   *Map Alphanumeric or New Translation Standards to the D’ni Font[^dnifont] created by Cyan[^Cyan].*   
+   *Map Alphanumeric or New Translation Standards to the D’ni Font[^dnifont].*   
    "-3.3#@8$"
 
 
@@ -37,7 +37,7 @@ Convert a decimal to base 25,  *Pentavigesimal[^Fandom]* numeral.
 -----------------------------------------------------------------
 *"Create and save a PIL Image from the given font string."*  
 
-**createImage**( text: string , kwargs) -> PIL.Image:  
+**createImage**( text: string , **kwargs) -> PIL.Image:  
 *Create a PIL Image from the given font string.*
 
 **saveImage**(image: PIL.Image, name: string, path: string) -> str:  
@@ -83,7 +83,7 @@ Ask to save image
 
 	anum = Alphanumericals(25).alphanumeric()
 	dni = ntsToDnifont(anum)
-	image = createImage(dni, font_color="Black", stroke_color= "DniCyan")
+	image = createImage(dni, font_color="Black", stroke_color="DniCyan")
 	saveImage(image)
 ![image](https://github.com/Stone-/Dni-Alphanumeric/blob/4ede0b41ca1f9ff67ee7c31fd08a40faba2620c1/Images/dni_numerals%20-%3E%20233.png)
 
@@ -96,7 +96,7 @@ Convert a decimal to the number system from Saavedro's journal found in Myst III
 ![image](https://github.com/Stone-/Dni-Alphanumeric/blob/4ede0b41ca1f9ff67ee7c31fd08a40faba2620c1/Images/narayani%20_numerals%20-%3E%2017.png)
 
 
-##narayani_words.py   
+## narayani_words.py   
 Create an image using Narayani words as seen in Myst III: Exile. Uses the *Narayani Light[^Jehon]* font.  
 ![image](https://github.com/Stone-/Dni-Alphanumeric/blob/4ede0b41ca1f9ff67ee7c31fd08a40faba2620c1/Images/narayani_words%20-%3E%20____.png)
 
