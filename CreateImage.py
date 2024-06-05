@@ -133,7 +133,8 @@ def askKwargs() -> {'kw':'args'}:
             kwargs
         Usage
         -----
-            createImage("text", **askKwargs()) '''
+            kwargs = askKwargs()
+            createImage("text", **kwargs) '''
 
     kwargs = {}
     color_keys = ImageColor.colormap.keys()
@@ -200,14 +201,12 @@ def askKwargs() -> {'kw':'args'}:
     return kwargs
 
 
-# Ask for kwargs if not given
-def _CreateImage(text, **kwargs):
-    if kwargs.get('ask'):
-        kwargs.update(AskKwargs())
-    return _CreateImage(text, **kwargs)
+# Ask for kwargs then createImage
+def askCreate(text: str, **kwargs) -> Image.Image:
+    "Ask user for kwargs, then create image."
+    return createImage(text, **kwargs, **askKwargs())
  
 
 
 if __name__ == "__main__":
     help(__name__)
-
