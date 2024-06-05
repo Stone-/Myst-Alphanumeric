@@ -92,12 +92,12 @@ Ask to save image
 -----------------------------------------------------------------
 
 ## narayani_numerals.py  
-Convert a decimal to the number system from Saavedro's journal found in Myst III: Exile. Uses the *Narayani Light[^Jehon]* font.
+Convert a decimal to the number system from Saavedro's journal found in Myst III: Exile. Uses the *Narayani Light[^Jehon]* font.  
 ![image](https://github.com/Stone-/Dni-Alphanumeric/blob/4ede0b41ca1f9ff67ee7c31fd08a40faba2620c1/Images/narayani%20_numerals%20-%3E%2017.png)
 
 
 ##narayani_words.py   
-Create an image using Narayani words as seen in Myst III: Exile. Uses the *Narayani Light[^Jehon]* font.
+Create an image using Narayani words as seen in Myst III: Exile. Uses the *Narayani Light[^Jehon]* font.  
 ![image](https://github.com/Stone-/Dni-Alphanumeric/blob/4ede0b41ca1f9ff67ee7c31fd08a40faba2620c1/Images/narayani_words%20-%3E%20____.png)
 
 
@@ -137,4 +137,3 @@ http://www.mystembassy.net/downloads/dnifontchart.pdf
 [^wiki]: [“Alphanumericals" - wiki](https://en.m.wikipedia.org/wiki/Alphanumericals)
  
 [^Fandom]: [Base naming systems - Fandom.com](https://numerals.fandom.com/wiki/Base_naming_systems)
-
